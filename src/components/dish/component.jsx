@@ -1,15 +1,14 @@
-/* eslint-disable react/jsx-key */
-import { Ingredient } from "../ingredient/component";
+import { Ingredients } from "../ingredients/component";
+import { Count } from "../count/component";
 
-export const Dish = ({ item }) => {
+export const Dish = ({ dish }) => {
+  const {name, price, ingredients} = dish;
+  const minValue = 0, maxValue = 5;
+
   return <div>
-    <span>{item.name + ": "}</span>
-    <span>{item.price + "$"}</span>
-    <div>
-      {"Ingredients:  "}
-      {item.ingredients.map((ingredient) => (
-        <Ingredient ingredient={ingredient} />
-      ))}
-    </div>
+    <span>{name + ": "}</span>
+    <span>{price + "$"}</span>
+    <Ingredients ingredients={ingredients} />
+    <Count minValue={minValue} maxValue={maxValue} />
   </div>;
 };

@@ -3,12 +3,15 @@ import { Review } from "../review/component";
 
 export const Reviews = ({ reviews }) => {
   return ( 
-    <ul>
-      {reviews.map((review) => (
-        <li>
-          <Review review={review} />
-        </li>
-      ))}
-    </ul>
+    <div>
+      <h3>Reviews</h3>
+      <ul>
+        {!!reviews?.length && reviews.map((review) => (
+          <li>
+            <Review review={review} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };

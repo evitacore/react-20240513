@@ -2,11 +2,11 @@ import { Menu } from "../menu/component";
 import { Reviews } from "../reviews/component";
 
 export const Restaurant = ({ restaurant }) => {
+  const {name, menu, reviews} = restaurant;
+
   return <div>
-    <h2>{restaurant.name}</h2>
-    <h3>Menu</h3>
-    <Menu menu={restaurant.menu} />
-    <h3>Reviews</h3>
-    <Reviews reviews={restaurant.reviews} />
+    <h2>{name}</h2>
+    <Menu menu={menu} />
+    <Reviews reviews={reviews} />
   </div>;
 };
