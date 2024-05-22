@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Count = ({ minValue = 0, maxValue = 5 }) => {
+export const Counter = ({ minValue = 0, maxValue = 5 }) => {
   const [count, setCount] = useState(0);
   
   const decrement = () => {
@@ -17,7 +17,7 @@ export const Count = ({ minValue = 0, maxValue = 5 }) => {
         
   return <div>
     <button onClick={decrement}>-</button>
-    {count}
+    <span>{count}</span>
     <button onClick={increment}>+</button>
   </div>;
 };

@@ -1,5 +1,5 @@
 import { Ingredients } from "../ingredients/component";
-import { Count } from "../count/component";
+import { Counter } from "../counter/component";
 
 export const Dish = ({ dish }) => {
   const {name, price, ingredients} = dish;
@@ -9,6 +9,6 @@ export const Dish = ({ dish }) => {
     <span>{name + ": "}</span>
     <span>{price + "$"}</span>
     <Ingredients ingredients={ingredients} />
-    <Count minValue={minValue} maxValue={maxValue} />
+    <Counter minValue={minValue} maxValue={maxValue} />
   </div>;
 };
