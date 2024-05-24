@@ -1,23 +1,9 @@
-import { useState } from "react";
-
-export const Counter = ({ minValue = 0, maxValue = 5 }) => {
-  const [count, setCount] = useState(0);
-  
-  const decrement = () => {
-    if(count > minValue) {
-        setCount(count - 1);
-    }
-  }
-
-  const increment = () => {
-    if(count < maxValue) {
-        setCount(count + 1);
-    }
-  }
-        
-  return <div>
-    <button onClick={decrement}>-</button>
-    <span>{count}</span>
-    <button onClick={increment}>+</button>
-  </div>;
+export const Counter = ({ value, min = 0, max = 5, onChange }) => {
+  return (
+    <div>
+      <button onClick={() => onChange(value - 1)} disabled={value === min}>-</button>
+      <span>{value}</span>
+      <button onClick={() => onChange(value + 1)} disabled={value === max}>+</button>
+    </div>
+  );
 };

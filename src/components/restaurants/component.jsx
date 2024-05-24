@@ -1,26 +1,21 @@
 /* eslint-disable react/jsx-key */
 import { useState } from "react";
 import { Restaurant } from "../restaurant/component";
+import { RestaurantTabs } from "../restaurant-tabs/component";
 
 export const Restaurants = ({ restaurants }) => {
-  const [selectedRestaurantIndex, setSelectedRestaurantIndex] = useState(0);
+  const [activeRestaurantIndex, setActiveRestaurantIndex] = useState(0);
 
   if(!restaurants) {
     return <div>No restaurant</div>
   }
 
-  const selectRestaurant = (index) => {
-    if (index !== selectedRestaurantIndex) {
-      setSelectedRestaurantIndex(index);
-    }
-  }
-
   return <div>
-    <div>
-      {restaurants.map((restaurant, index) => (
-        <button onClick={() => selectRestaurant(index)}>{restaurant.name}</button>
-      ))}
-    </div>
-    <Restaurant restaurant={restaurants[selectedRestaurantIndex]} />
+    <RestaurantTabs 
+      restaurants={restaurants} 
+      onTabClick={setActiveRestaurantIndex} 
+      activeTabIndex={activeRestaurantIndex} 
+    />
+    <Restaurant restaurant={restaurants[activeRestaurantIndex]} />
   </div>;
 };
