@@ -1,7 +1,9 @@
 export const Review = ({ review }) => {
+  const {user, rating, text} = review;
+
   return <div>
-    <div>{"User: " + review.user}</div>
-    <div>{"Rating: " + review.rating}</div>
-    <div>{"Text: " + review.text}</div>
+    <div>{"User: " + user}</div>
+    <div>{"Rating: " + rating}</div>
+    <div>{"Text: " + text}</div>
   </div>;
 };
