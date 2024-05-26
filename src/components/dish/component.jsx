@@ -1,17 +1,19 @@
 import { Ingredients } from "../ingredients/component";
 import { Counter } from "../counter/component";
-import { useState } from "react";
-const initialValue = 0;
+import { useCount } from "../../hooks/use-count";
 
 export const Dish = ({ dish }) => {
-  const [count, setCount] = useState(initialValue);
+  const {count, increment, decrement} = useCount();
   const {name, price, ingredients} = dish;
 
   return <div>
-    <span>{name + ": "}</span>
-    <span>{price + "$"}</span>
+    <div>{name}</div>
     <Ingredients ingredients={ingredients} />
-    <Counter value={count} onChange={setCount} />
+    <Counter
+      value={count}
+      decrement={decrement}
+      increment={increment}
+    />
     <div>Price: {count * price}</div>
   </div>;
 };
