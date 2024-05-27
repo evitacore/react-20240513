@@ -1,9 +1,9 @@
-export const Counter = ({ value, min = 0, max = 5, onChange }) => {
+export const Counter = ({ value, decrement, increment }) => {
   return (
     <div>
-      <button onClick={() => onChange(value - 1)} disabled={value === min}>-</button>
+      <button onClick={decrement} >-</button>
       <span>{value}</span>
-      <button onClick={() => onChange(value + 1)} disabled={value === max}>+</button>
+      <button onClick={increment} >+</button>
     </div>
   );
 };
