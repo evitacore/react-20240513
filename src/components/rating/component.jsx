@@ -1,10 +1,16 @@
-export const Rating = ({ value, onClickRating, min=1, max=5 } = {}) => {
-  let buttons = [];
-  for (let i = min; i <= max; i++) {
-    buttons.push(<button onClick={onClickRating} disabled={value === i}>{i}</button>);
-  }
+/* eslint-disable react/jsx-key */
+export const Rating = ({ rating, onClickRating, size=5 } = {}) => {
+  return (
+    <div>
+      {[...new Array(size)].map((_, index) => {
+        const value = index + 1;
 
-  return <div>
-    <div>{buttons}</div>
-  </div>;
+        return (
+          <button type='button' disabled={rating === value} onClick={onClickRating}>
+            {value}
+          </button>
+        );
+      })}
+    </div>
+  );
 };

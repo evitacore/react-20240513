@@ -54,7 +54,7 @@ export const ReviewForm = () => {
     <div>
       <span>Rating</span>
       <Rating 
-        value={form.rating}
+        rating={form.rating}
         onClickRating={(e) =>
           dispatch({ type: "setRating", payload: Number(e.target.textContent) })
         }
