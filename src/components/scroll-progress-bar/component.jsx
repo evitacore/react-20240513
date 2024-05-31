@@ -16,5 +16,5 @@ export const ScrollProgressBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return <div ref={progressBarRef} className="progressBar" style={{ width: `${scrollWidth}%` }}></div>
+  return <div ref={progressBarRef} className="progressBar" style={{ width: `${scrollWidth}%` }} />
 };
