@@ -17,8 +17,5 @@ export const Restaurants = ({ restaurants }) => {
       activeTabIndex={activeRestaurantIndex} 
     />
     <Restaurant restaurant={restaurants[activeRestaurantIndex]} />
-    <Restaurant restaurant={restaurants[activeRestaurantIndex]} />
-    <Restaurant restaurant={restaurants[activeRestaurantIndex]} />
-    <Restaurant restaurant={restaurants[activeRestaurantIndex]} />
   </div>;
 };

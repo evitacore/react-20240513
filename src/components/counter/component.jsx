@@ -1,9 +1,11 @@
+import { Button } from "../button/component";
+
 export const Counter = ({ value, decrement, increment }) => {
   return (
     <div>
-      <button onClick={decrement} >-</button>
+      <Button onClick={decrement} >-</Button>
       <span>{value}</span>
-      <button onClick={increment} >+</button>
+      <Button onClick={increment} >+</Button>
     </div>
   );
 };
