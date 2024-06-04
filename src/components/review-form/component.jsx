@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import { Rating } from "../rating/component";
+import { Button } from "../button/component";
 
 const INITIAL_STATE = {
   name: "", 
@@ -58,6 +59,6 @@ export const ReviewForm = () => {
         onChange={(rating) => dispatch({ type: "setRating", payload: rating })}
       />
     </div>
-    <button type="submit">Save</button>
+    <Button type="submit">Save</Button>
   </form>;
 };

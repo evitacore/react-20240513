@@ -1,0 +1,22 @@
+button {
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+.default {
+  background-color: #fff;
+  color: #766FC3;
+}
+
+.alternative {
+  background-color: #766FC3;
+  color: #fff;
+}
+
+*:disabled {
+  background-color: dimgrey;
+  color: linen;
+  opacity: 1;
+}
