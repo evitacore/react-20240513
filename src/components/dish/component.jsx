@@ -1,18 +1,17 @@
 import { Ingredients } from "../ingredients/component";
 import { Counter } from "../counter/component";
 import { useCount } from "../../hooks/use-count";
-import { useContext } from "react";
-import { UserContext } from "../contexts/UserContext";
+import { useUser } from "../contexts/user/hooks";
 
 export const Dish = ({ dish }) => {
   const {count, increment, decrement} = useCount();
-  const {currentUser} = useContext(UserContext);
+  const {user} = useUser();
   const {name, price, ingredients} = dish;
 
   return <div>
     <div>{name}</div>
     <Ingredients ingredients={ingredients} />
-    {currentUser && <Counter
+    {user && <Counter
       value={count}
       decrement={decrement}
       increment={increment}
