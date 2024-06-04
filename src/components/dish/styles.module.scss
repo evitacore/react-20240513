@@ -1,0 +1,28 @@
+.root {
+    border-radius: 20px;
+    border: 1px solid #DBDBDB;
+    padding: 20px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.ingredients {
+    margin-bottom: 8px;
+    color: #666666;
+}
+
+.image {
+    background-image: url("https://shorturl.at/CMKQs");
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+}

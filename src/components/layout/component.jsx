@@ -1,5 +1,6 @@
 import { Footer } from "../footer/component";
 import { Header } from "../header/component";
+import styles from './styles.module.scss'
 
 export const Layout = ({ children }) => {
   return (
@@ -7,7 +8,7 @@ export const Layout = ({ children }) => {
       <div id="modal" style={{position: "relative", zIndex: 2}}></div>
       <div style={{zIndex: 1}}>
         <Header />
-        <div style={{margin: '10px 0'}}>{children}</div>
+        <div className={styles.content}>{children}</div>
         <Footer />
       </div>
     </div>

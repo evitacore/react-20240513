@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import { Rating } from "../rating/component";
 import { Button } from "../button/component";
+import styles from './styles.module.scss';
 
 const INITIAL_STATE = {
   name: "", 
@@ -31,10 +32,11 @@ export const ReviewForm = () => {
     dispatch({ type: "reset" });
   }
 
-  return <form onSubmit={handleSubmit}>
-    <div>
-      <span>Name</span>
+  return <form className={styles.root} onSubmit={handleSubmit}>
+    <div className={styles.field}>
       <input 
+        className={styles.input}
+        placeholder="Enter your name"
         type="text" 
         value={form.name}
         onChange={(e) =>
@@ -42,9 +44,10 @@ export const ReviewForm = () => {
         }
       />
     </div>
-    <div>
-      <span>Text</span>
+    <div className={styles.field}>
       <input 
+        className={styles.input}
+        placeholder="Enter your text"
         type="text" 
         value={form.text}
         onChange={(e) =>
@@ -52,13 +55,13 @@ export const ReviewForm = () => {
         }
       />
     </div>
-    <div>
-      <span>Rating</span>
+    <div className={styles.rating}>
+      <div className={styles.rating}>Rating</div>
       <Rating 
         rating={form.rating}
         onChange={(rating) => dispatch({ type: "setRating", payload: rating })}
       />
     </div>
-    <Button type="submit">Save</Button>
+    <Button className={styles.button} type="submit">Save</Button>
   </form>;
 };

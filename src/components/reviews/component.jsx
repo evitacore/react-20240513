@@ -1,17 +1,15 @@
 /* eslint-disable react/jsx-key */
 import { Review } from "../review/component";
 
-export const Reviews = ({ reviews }) => {
+export const Reviews = ({ reviewIds }) => {
   return ( 
     <div>
-      <h3>Reviews</h3>
-      <ul>
-        {reviews.map((review) => (
-          <li>
-            <Review review={review} />
-          </li>
+      <h3>{reviewIds.length} reviews:</h3>
+      <div>
+        {reviewIds.map((id) => (
+          <Review reviewId={id} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

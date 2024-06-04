@@ -1,9 +1,17 @@
-export const Review = ({ review }) => {
-  const {user, rating, text} = review;
+import { useSelector } from "react-redux";
+import styles from './styles.module.scss';
+import { StarsRating } from "../stars-rating/component";
 
-  return <div>
-    <div>{"User: " + user}</div>
-    <div>{"Rating: " + rating}</div>
-    <div>{"Text: " + text}</div>
+export const Review = ({ reviewId }) => {
+  const review = useSelector(state => state.review.entities[reviewId]);
+  const user = useSelector(state => state.user.entities[review.userId])
+  const {rating, text} = review;
+
+  return <div className={styles.root}>
+    <div className={styles.header} >
+      <span>{user.name}</span>
+      <StarsRating rating={rating} />
+    </div>
+    <div className={styles.text}>{text}</div>
   </div>;
 };

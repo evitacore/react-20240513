@@ -1,0 +1,27 @@
+.root {
+  padding: 10px 15px;
+  box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 20px;
+}
+
+.default {
+  background-color: #EAF3F0;
+  color: black;
+}
+
+.alternative {
+  background-color: #054540;
+  color: #fff;
+}
+
+.default:disabled {
+  background-color: #054540;
+  color: #fff;
+  opacity: 1;
+}
+
+.alternative:disabled {
+  background-color: #EAF3F0;
+  color: black;
+}

@@ -1,0 +1,15 @@
+.checked {
+    color: #FFE17D;
+}
+
+.star {
+    display: inline-block;
+    font: normal normal normal 14px / 1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.star:before{
+    content:"\f005"
+}

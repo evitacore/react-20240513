@@ -1,17 +1,20 @@
-import { ThemeContextProvider } from "./components/contexts/theme/provider";
-import { UserContextProvider } from "./components/contexts/user/provider";
+import { Provider } from "react-redux";
+import { ThemeContextProvider } from "./contexts/theme/provider";
+import { UserContextProvider } from "./contexts/user/provider";
 import { Layout } from "./components/layout/component";
 import { Restaurants } from "./components/restaurants/component";
-import { restaurants } from "./constants/mock";
+import { store } from "./redux";
 
 export const App = () => {
   return (
-    <ThemeContextProvider>
-      <UserContextProvider>
-        <Layout>
-          <Restaurants restaurants={restaurants} />
-        </Layout>
-      </UserContextProvider>
-    </ThemeContextProvider>
+    <Provider store={store}>
+      <ThemeContextProvider>
+        <UserContextProvider>
+          <Layout>
+            <Restaurants />
+          </Layout>
+        </UserContextProvider>
+      </ThemeContextProvider>
+    </Provider>
   );
 };
