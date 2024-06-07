@@ -1,26 +1,26 @@
 import { Ingredients } from "../ingredients/component";
 import { Counter } from "../counter/component";
-import { useCount } from "../../hooks/use-count";
 import { useUser } from "../../contexts/user/hooks";
-import styles from './styles.module.scss'
+import styles from "./styles.module.scss";
 
-export const Dish = ({ dish }) => {
-  const {count, increment, decrement} = useCount();
-  const {user} = useUser();
-  const {name, price, ingredients} = dish;
+export const Dish = ({ dish, count, decrement, increment }) => {
+  const { user } = useUser();
+  const { name, price, ingredients } = dish;
 
-  return <div className={styles.root}>
-    <div>
-      <div className={styles.title}>{name} ${price}</div>
-      <div className={styles.ingredients}>
-        <Ingredients ingredients={ingredients} />
+  return (
+    <div className={styles.root}>
+      <div>
+        <div className={styles.title}>
+          {name} ${price}
+        </div>
+        <div className={styles.ingredients}>
+          <Ingredients ingredients={ingredients} />
+        </div>
+        {user && (
+          <Counter value={count} decrement={decrement} increment={increment} />
+        )}
       </div>
-      {user && <Counter
-        value={count}
-        decrement={decrement}
-        increment={increment}
-      />}
+      <div className={styles.image} />
     </div>
-    <div className={styles.image} />
-  </div>;
+  );
 };

@@ -6,5 +6,9 @@ import { selectRestaurantIds } from "../../redux/entities/restaurant/selectors";
 export const RestaurantTabsContainer = ({...props}) => {
   const restaurantIds = useSelector(selectRestaurantIds);
 
+  if(!restaurantIds) {
+    return;
+  }
+
   return <RestaurantTabs {...props} restaurantIds={restaurantIds} />
 };

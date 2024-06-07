@@ -1,15 +1,15 @@
 import { Menu } from "../menu/component";
 import { ReviewForm } from "../review-form/component";
-import { Reviews } from "../reviews/component";
+import { ReviewsContainer } from "../reviews/container";
 
-export const Restaurant = ({ restaurant }) => {
-  const { name, menu, reviews } = restaurant;
+export const Restaurant = ({ restaurant, dishIds }) => {
+  const { name, id } = restaurant;
 
   return (
     <div>
       <h2>{name}</h2>
-      {!!menu?.length && <Menu dishIds={menu} />}
-      {!!reviews?.length && <Reviews reviewIds={reviews} />}
+      {!!dishIds?.length && <Menu dishIds={dishIds} />}
+      {<ReviewsContainer restaurantId={id} />}
       <ReviewForm />
     </div>
   );

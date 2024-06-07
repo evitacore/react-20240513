@@ -1,8 +1,12 @@
 import styles from "./styles.module.scss";
 import { StarsRating } from "../stars-rating/component";
 
-export const Review = ({ user, review }) => {
+export const Review = ({ user, review }) => { 
   const { rating, text } = review;
+
+  if(!review) {
+    return;
+  }
 
   return (
     <div className={styles.root}>
