@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import { Dish } from '../dish/component';
+import { DishContainer } from '../dish/container';
 
 export const Menu = ({ dishIds }) => {
 	return (
@@ -7,7 +7,7 @@ export const Menu = ({ dishIds }) => {
 			<h3>Menu</h3>
       <div>
         {dishIds.map((id) => (
-          <Dish dishId={id} />
+          <DishContainer id={id} />
         ))}
       </div>
 		</div>

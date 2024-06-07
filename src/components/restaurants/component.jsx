@@ -1,18 +1,16 @@
 /* eslint-disable react/jsx-key */
 import { useState } from "react";
-import { Restaurant } from "../restaurant/component";
-import { RestaurantTabs } from "../restaurant-tabs/component";
-import { useSelector } from "react-redux";
+import { RestaurantTabsContainer } from "../restaurant-tabs/container";
+import { RestaurantContainer } from "../restaurant/container";
 
 export const Restaurants = () => {
-  const initialRestaurantId = useSelector(state => state.restaurant.ids[0])
-  const [activeRestaurantId, setActiveRestaurantId] = useState(initialRestaurantId);
+  const [activeRestaurantId, setActiveRestaurantId] = useState();
 
   return <div>
-    <RestaurantTabs 
+    <RestaurantTabsContainer 
       onTabClick={setActiveRestaurantId} 
       activeTabId={activeRestaurantId} 
     />
-    <Restaurant restaurantId={activeRestaurantId} />
+    <RestaurantContainer id={activeRestaurantId} />
   </div>;
 };
