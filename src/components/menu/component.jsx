@@ -1,17 +1,15 @@
 /* eslint-disable react/jsx-key */
-import { Dish } from '../dish/component';
+import { DishContainer } from '../dish/container';
 
-export const Menu = ({ menu }) => {
+export const Menu = ({ dishIds }) => {
 	return (
 		<div>
 			<h3>Menu</h3>
-			<ul>
-				{menu.map((dish) => (
-					<li>
-						<Dish dish={dish} />
-					</li>
-				))}
-			</ul>
+      <div>
+        {dishIds.map((id) => (
+          <DishContainer id={id} />
+        ))}
+      </div>
 		</div>
 	);
 };

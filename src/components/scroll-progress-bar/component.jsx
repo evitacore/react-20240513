@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import './style.css';
+import styles from './styles.module.scss';
 
 export const ScrollProgressBar = () => {
   const [scrollWidth, setScrollWidth] = useState(0)
@@ -16,5 +16,5 @@ export const ScrollProgressBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return <div ref={progressBarRef} className="progressBar" style={{ width: `${scrollWidth}%` }} />
+  return <div ref={progressBarRef} className={styles.progressBar} style={{ width: `${scrollWidth}%` }} />
 };

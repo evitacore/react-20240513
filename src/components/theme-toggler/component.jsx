@@ -1,5 +1,5 @@
 import { Button } from "../button/component";
-import { useTheme } from "../contexts/theme/hooks";
+import { useTheme } from "../../contexts/theme/hooks";
 
 export const ThemeToggler = () => {
   const { toggleTheme } = useTheme();

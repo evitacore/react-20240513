@@ -1,21 +1,16 @@
 /* eslint-disable react/jsx-key */
 import { useState } from "react";
-import { Restaurant } from "../restaurant/component";
-import { RestaurantTabs } from "../restaurant-tabs/component";
+import { RestaurantTabsContainer } from "../restaurant-tabs/container";
+import { RestaurantContainer } from "../restaurant/container";
 
-export const Restaurants = ({ restaurants }) => {
-  const [activeRestaurantIndex, setActiveRestaurantIndex] = useState(0);
-
-  if(!restaurants) {
-    return <div>No restaurant</div>
-  }
+export const Restaurants = () => {
+  const [activeRestaurantId, setActiveRestaurantId] = useState();
 
   return <div>
-    <RestaurantTabs 
-      restaurants={restaurants} 
-      onTabClick={setActiveRestaurantIndex} 
-      activeTabIndex={activeRestaurantIndex} 
+    <RestaurantTabsContainer 
+      onTabClick={setActiveRestaurantId} 
+      activeTabId={activeRestaurantId} 
     />
-    <Restaurant restaurant={restaurants[activeRestaurantIndex]} />
+    <RestaurantContainer id={activeRestaurantId} />
   </div>;
 };

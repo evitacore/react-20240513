@@ -1,10 +1,19 @@
-import { THEMES } from "../contexts/theme/constants";
-import './style.css';
-import { useTheme } from "../contexts/theme/hooks";
+// import { THEMES } from "../contexts/theme/constants";
+import styles from './styles.module.scss';
+import { useTheme } from "../../contexts/theme/hooks";
+import classNames from 'classnames';
 
-export const Button = ({type, disabled, onClick, children}) => {
+export const Button = ({type, disabled, onClick, children, className}) => {
   const { theme } = useTheme();
-  const buttonClass = theme === THEMES.default ? THEMES.default : THEMES.alternative;
 
-  return <button type={type} disabled={disabled} className={buttonClass} onClick={onClick}>{children}</button>;
+  return (
+    <button 
+      type={type}
+      disabled={disabled} 
+      className={classNames(styles.root, styles[theme], className)} 
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
 };

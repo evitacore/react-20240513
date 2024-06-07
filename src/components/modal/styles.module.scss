@@ -1,0 +1,36 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(16 18 27 / 40%);
+  z-index: 1;
+}
+
+.content {
+  background: white;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+
+.button {
+  position: relative;
+  height: 40px;
+}
+
+.close {
+  background-color: white;
+  box-shadow: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.close:before{
+  content: "\2715"
+}

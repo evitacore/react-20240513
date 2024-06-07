@@ -1,8 +1,9 @@
 import { useCallback, useState } from "react";
 import { Button } from "../button/component";
-import { useUser } from "../contexts/user/hooks";
 import { AuthorizationForm } from "../authorization-form/component";
 import { Modal } from "../modal/component";
+import { useUser } from "../../contexts/user/hooks";
+import styles from './styles.module.scss'
 
 export const AuthorizationButton = () => {
   const {user, logout, login} = useUser(); 
@@ -15,7 +16,7 @@ export const AuthorizationButton = () => {
   }, [login, handleClose]) 
 
   return <div>
-    <span>{user}</span>
+    <span className={styles.user}>{user && `Hello, ${user}!`}</span>
     {user ? (
       <Button onClick={logout}>Logout</Button>
     ) : (
@@ -23,7 +24,7 @@ export const AuthorizationButton = () => {
     )}
     {isModalOpen && (
       <Modal onClose={handleClose}>
-        <AuthorizationForm onLogin={handleLogin} />
+        <AuthorizationForm onLogin={handleLogin} onCancel={handleClose} />
       </Modal>
     )}
   </div>;
