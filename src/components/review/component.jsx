@@ -11,7 +11,7 @@ export const Review = ({ user, review }) => {
   return (
     <div className={styles.root}>
       <div className={styles.header}>
-        <span>{user?.name}</span>
+        <span>{user.name}</span>
         <StarsRating rating={rating} />
       </div>
       <div className={styles.text}>{text}</div>
