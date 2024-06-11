@@ -16,3 +16,8 @@
     color: black;
     padding: 5px 10px;
 }
+
+.button:disabled {
+    background: white;
+    color: rgb(182, 182, 182);
+}

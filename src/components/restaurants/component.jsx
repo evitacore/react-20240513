@@ -9,8 +9,8 @@ export const Restaurants = () => {
   return <div>
     <RestaurantTabsContainer 
       onTabClick={setActiveRestaurantId} 
-      activeTabId={activeRestaurantId} 
+      activeTabId={activeRestaurantId}
     />
-    <RestaurantContainer id={activeRestaurantId} />
+    {activeRestaurantId && <RestaurantContainer id={activeRestaurantId} />}
   </div>;
 };
