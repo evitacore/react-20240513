@@ -10,7 +10,7 @@ export const Restaurant = ({ restaurant }) => {
       <h2>{name}</h2>
       {<MenuContainer restaurantId={id} />}
       {<ReviewsContainer restaurantId={id} />}
-      <ReviewForm />
+      <ReviewForm restaurantId={id} />
     </div>
   );
 };

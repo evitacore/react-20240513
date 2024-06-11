@@ -1,13 +1,13 @@
 /* eslint-disable react/jsx-key */
 import { ReviewContainer } from "../review/container";
 
-export const Reviews = ({ reviewIds }) => {
+export const Reviews = ({ reviews }) => {
   return ( 
     <div>
-      <h3>{reviewIds.length} reviews:</h3>
+      <h3>{reviews.length} reviews:</h3>
       <div>
-        {reviewIds.map((id) => (
-          <ReviewContainer id={id} />
+        {reviews.map((review) => (
+          <ReviewContainer review={review} />
         ))}
       </div>
     </div>

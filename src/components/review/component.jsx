@@ -1,5 +1,6 @@
 import styles from "./styles.module.scss";
 import { StarsRating } from "../stars-rating/component";
+import { Button } from "../button/component";
 
 export const Review = ({ user, review }) => {
   const { rating, text } = review;
@@ -15,6 +16,7 @@ export const Review = ({ user, review }) => {
         <StarsRating rating={rating} />
       </div>
       <div className={styles.text}>{text}</div>
+      <Button>Edit</Button>
     </div>
   );
 };
