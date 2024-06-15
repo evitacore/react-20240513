@@ -1,5 +1,5 @@
 import { MenuContainer } from "../menu/container";
-import { ReviewForm } from "../review-form/component";
+import { NewReviewFormContainer } from "../new-review-form/container";
 import { ReviewsContainer } from "../reviews/container";
 
 export const Restaurant = ({ restaurant }) => {
@@ -10,7 +10,7 @@ export const Restaurant = ({ restaurant }) => {
       <h2>{name}</h2>
       {<MenuContainer restaurantId={id} />}
       {<ReviewsContainer restaurantId={id} />}
-      <ReviewForm />
+      <NewReviewFormContainer restaurantId={id} />
     </div>
   );
 };

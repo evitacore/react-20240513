@@ -1,19 +1,20 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { selectDishIds } from "../selectors";
-import { selectRestaurantDishIds } from "../../restaurant/selectors";
+// import { selectDishIds } from "../selectors";
+// import { selectRestaurantDishIds } from "../../restaurant/selectors";
+import { BASE_ENDPOINT } from "../../../../constants/endpoints";
 
 export const getDishesByRestaurantId = createAsyncThunk(
   "dish/getDishesByRestaurantId",
   async (restaurantId) => {
-    const response = await fetch(`http://localhost:3001/api/dishes?restaurantId=${restaurantId}`);
+    const response = await fetch(`${BASE_ENDPOINT}/dishes?restaurantId=${restaurantId}`);
 
     return response.json();
   },
-  {condition: (restaurantId, {getState}) => {
-    const state = getState();
-    const loadedDishesIds = selectDishIds(state);
-    const restaurantDishesIds = selectRestaurantDishIds(state, restaurantId);
+  // {condition: (restaurantId, {getState}) => {
+  //   const state = getState();
+  //   const loadedDishesIds = selectDishIds(state);
+  //   const restaurantDishesIds = selectRestaurantDishIds(state, restaurantId);
 
-    return restaurantDishesIds.some((id) => !loadedDishesIds.includes(id));
-  }}
+  //   return restaurantDishesIds.some((id) => !loadedDishesIds.includes(id));
+  // }}
 );
