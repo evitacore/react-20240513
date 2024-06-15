@@ -2,7 +2,6 @@ import { useReducer } from "react";
 import { Rating } from "../rating/component";
 import { Button } from "../button/component";
 import styles from "./styles.module.scss";
-import { useCreateReviewMutation } from "../../redux/service/api";
 
 const INITIAL_STATE = {
   text: "",
@@ -18,32 +17,24 @@ function reducer(state, { type, payload } = {}) {
     case "setRating":
       return { ...state, rating: payload };
     case "reset":
-      return {...INITIAL_STATE};
+      return { ...INITIAL_STATE };
     default:
       return state;
   }
 }
 
-export const ReviewForm = ({ restaurantId }) => {
-  const [form, dispatch] = useReducer(reducer, INITIAL_STATE);
-
-  const [createReview, { isLoading }] = useCreateReviewMutation();
+export const ReviewForm = ({
+  initialValue = INITIAL_STATE,
+  onSaveClick,
+  onCancelClick,
+}) => {
+  const [form, dispatch] = useReducer(reducer, initialValue);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createReview({
-      restaurantId,
-      newReview: {
-        ...form,
-        userId: "c3d4abd4-c3ef-46e1-8719-eb17db1d6e99",
-      },
-    });
+    onSaveClick({ ...initialValue, ...form });
     dispatch({ type: "reset" });
   };
-
-  if(isLoading) {
-    return <div>Loading</div>
-  }
 
   return (
     <form className={styles.root} onSubmit={handleSubmit}>
@@ -78,9 +69,14 @@ export const ReviewForm = ({ restaurantId }) => {
           }
         />
       </div>
-      <Button className={styles.button} type="submit">
+      <Button onClick={handleSubmit} className={styles.button}>
         Save
       </Button>
+      {onCancelClick && (
+        <Button onClick={onCancelClick} className={styles.button}>
+          Cancel
+        </Button>
+      )}
     </form>
   );
 };

@@ -1,9 +1,4 @@
-export const selectRestaurantFromResult = (restaurantId) => (result) => ({
+export const selectEntityFromResult = (entityId) => (result) => ({
   ...result,
-  data: result.data?.find(({ id }) => id === restaurantId),
-});
-
-export const selectUserFromResult = (userId) => (result) => ({
-  ...result,
-  data: result.data?.find(({ id }) => id === userId),
+  data: result.data?.find(({ id }) => id === entityId),
 });
