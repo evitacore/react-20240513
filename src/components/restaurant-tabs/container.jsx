@@ -2,7 +2,7 @@
 import { RestaurantTabs } from "./component";
 import { useGetRestaurantsQuery } from "../../redux/service/api";
 
-export const RestaurantTabsContainer = ({ ...props }) => {
+export const RestaurantTabsContainer = () => {
   const { data: restaurants, isLoading, isFetching } = useGetRestaurantsQuery();
 
   if (!restaurants) {
@@ -13,9 +13,7 @@ export const RestaurantTabsContainer = ({ ...props }) => {
     <>
       {isLoading && <div>Loading</div>}
       {isFetching && <div>isFetching</div>}
-      {restaurants.length > 0 && (
-        <RestaurantTabs {...props} restaurants={restaurants} />
-      )}
+      {restaurants?.length > 0 && <RestaurantTabs restaurants={restaurants} />}
     </>
   );
 };

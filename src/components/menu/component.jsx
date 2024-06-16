@@ -1,17 +1,15 @@
 /* eslint-disable react/jsx-key */
-import { Button } from '../button/component';
-import { DishContainer } from '../dish/container';
+import { DishContainer } from "../dish/container";
 
-export const Menu = ({ dishes, onRefreshClick }) => {
-	return (
-		<div>
-			<h3>Menu</h3>
-      <Button onClick={onRefreshClick}>Refresh</Button>
+export const Menu = ({ dishes }) => {
+  return (
+    <div>
+      <h3>Menu</h3>
       <div>
         {dishes.map((dish) => (
-          <DishContainer dish={dish} />
+          <DishContainer itemId={dish.id} />
         ))}
       </div>
-		</div>
-	);
+    </div>
+  );
 };
