@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             element: <RestaurantContainer />,
             children: [
               { index: true, element: <MenuContainer /> },
-              { path: "menu", index: true, element: <MenuContainer /> },
+              { path: "menu", element: <MenuContainer /> },
               { path: "reviews", element: <ReviewsContainer /> },
             ],
           },
