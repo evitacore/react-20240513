@@ -1,16 +1,16 @@
 .root {
-    border-radius: 30px;
-    border: 1px solid #DBDBDB;
     display: inline-block;
-    padding: 5px;
+    padding: 2px;
+    border-radius: 10px;
+    background-color: rgba(101, 92, 78, .1);
 }
 
 .value {
     padding: 0px 15px;
+    color: #000;
 }
 
 .button {
-    background: white;
     border: none;
     box-shadow: none;
     color: black;
@@ -18,6 +18,5 @@
 }
 
 .button:disabled {
-    background: white;
     color: rgb(182, 182, 182);
 }

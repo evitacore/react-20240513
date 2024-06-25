@@ -1,3 +1,20 @@
-.button {
-    margin-right: 4px;
+.tab {
+  height: 100%;
+  display: block;
+  padding: 0 18px;
+  transition: background .2s ease;
+  line-height: 48px;
+  border-radius: 16px;
+}
+
+.tab + .tab {
+  margin-left: 4px;
+}
+
+.tab:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.active {
+  background: #fff;
 }

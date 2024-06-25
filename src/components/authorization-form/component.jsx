@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Button } from "../button/component";
 import styles from './styles.module.scss';
+import { Input } from "../input/component";
 
 export const AuthorizationForm = ({ onLogin, onCancel }) => {
   const [name, setName] = useState('');
   return (
     <div className={styles.root}>
-      <input className={styles.input} placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)} />
-      <div>
+      <Input value={name} setValue={(e) => setName(e.target.value)} placeholder="Enter your name" />
+      <div className={styles.buttons}>
         <Button
           className={styles.login}
           onClick={() => {

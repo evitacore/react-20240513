@@ -1,18 +1,23 @@
 .root {
-  padding: 10px 15px;
-  box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.3);
   border: none;
-  border-radius: 20px;
+  border-radius: 16px;
+  align-items: center;
+  display: flex;
+  padding: 0 24px;
+  min-height: 48px;
+  min-width: 48px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .default {
-  background-color: #EAF3F0;
+  background-color: rgba(101, 92, 78, 0.1);
   color: black;
 }
 
 .alternative {
-  background-color: #054540;
-  color: #fff;
+  background-color: #fce000;
+  color: black;
 }
 
 .default:disabled {
@@ -22,6 +27,6 @@
 }
 
 .alternative:disabled {
-  background-color: #EAF3F0;
+  background-color: #eaf3f0;
   color: black;
 }

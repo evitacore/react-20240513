@@ -2,10 +2,11 @@ import { useReducer } from "react";
 import { Rating } from "../rating/component";
 import { Button } from "../button/component";
 import styles from "./styles.module.scss";
+import { Input } from "../input/component";
 
 const INITIAL_STATE = {
   text: "",
-  rating: 0,
+  rating: 5,
 };
 
 function reducer(state, { type, payload } = {}) {
@@ -50,18 +51,16 @@ export const ReviewForm = ({
       />
     </div> */}
       <div className={styles.field}>
-        <input
-          className={styles.input}
-          placeholder="Enter your text"
-          type="text"
+        <Input
           value={form.text}
-          onChange={(e) =>
+          setValue={(e) =>
             dispatch({ type: "setText", payload: e.target.value })
           }
+          placeholder="Enter your text"
         />
       </div>
       <div className={styles.rating}>
-        <div className={styles.rating}>Rating</div>
+        <div className={styles.rating}>Choose your rating</div>
         <Rating
           rating={form.rating}
           onChange={(rating) =>
@@ -69,14 +68,8 @@ export const ReviewForm = ({
           }
         />
       </div>
-      <Button onClick={handleSubmit} className={styles.button}>
-        Save
-      </Button>
-      {onCancelClick && (
-        <Button onClick={onCancelClick} className={styles.button}>
-          Cancel
-        </Button>
-      )}
+      <Button onClick={handleSubmit}>Save</Button>
+      {onCancelClick && <Button onClick={onCancelClick}>Cancel</Button>}
     </form>
   );
 };

@@ -1,3 +1,16 @@
+.root {
+  display: flex;
+  align-items: center;
+}
+
 .user {
-    margin-right: 8px;
+  margin-right: 8px;
+}
+
+.login {
+  background-color: #fce000;
+}
+
+.logout {
+  background-color: rgba(101, 92, 78, 0.1);
 }

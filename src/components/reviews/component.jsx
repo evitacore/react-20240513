@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import { ReviewContainer } from "../review/container";
 
 export const Reviews = ({ reviews }) => {
@@ -7,7 +6,7 @@ export const Reviews = ({ reviews }) => {
       <h3>{reviews.length} reviews:</h3>
       <div>
         {reviews.map((review) => (
-          <ReviewContainer review={review} />
+          <ReviewContainer review={review} key={review.id} />
         ))}
       </div>
     </div>

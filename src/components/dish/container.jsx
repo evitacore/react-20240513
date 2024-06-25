@@ -1,23 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
 import { Dish } from "./component";
-import { selectDishCount } from "../../redux/ui/cart/selectors";
-import { useCallback } from "react";
-import { decrement, increment } from "../../redux/ui/cart";
+import { useCart } from "../../hooks/use-cart";
+import { useParams } from "react-router-dom";
+import { useGetDishByIdQuery } from "../../redux/service/api";
 
-export const DishContainer = ({ dish }) => {
-  const { id } = dish;
-  const count = useSelector((state) => selectDishCount(state, id));
-  const dispatch = useDispatch();
-
-  const handleIncrement = useCallback(
-    () => dispatch(increment(id)),
-    [dispatch, id]
-  );
-
-  const handleDecrement = useCallback(
-    () => dispatch(decrement(id)),
-    [dispatch, id]
-  );
+export const DishContainer = ({ itemId }) => {
+  const { dishId } = useParams();
+  const { data: dish } = useGetDishByIdQuery(itemId || dishId);
+  const { count, increment, decrement } = useCart(itemId || dishId);
 
   if (!dish) {
     return null;
@@ -27,8 +16,8 @@ export const DishContainer = ({ dish }) => {
     <Dish
       dish={dish}
       count={count}
-      increment={handleIncrement}
-      decrement={handleDecrement}
+      increment={increment}
+      decrement={decrement}
     />
   );
 };

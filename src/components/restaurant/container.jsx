@@ -1,17 +1,24 @@
-import { Restaurant } from "./component";
 import { useGetRestaurantsQuery } from "../../redux/service/api";
 import { selectEntityFromResult } from "../../redux/service/api/selectors";
+import { Outlet, useParams } from "react-router-dom";
+import { NavigationTabs } from "../navigation-tabs/component";
 
-export const RestaurantContainer = ({ id }) => {
+export const RestaurantContainer = () => {
+  const { restaurantId } = useParams();
   const { data: restaurant } = useGetRestaurantsQuery(undefined, {
-    // pollingInterval: 1000,
-    skip: !id,
-    selectFromResult: selectEntityFromResult(id),
+    skip: !restaurantId,
+    selectFromResult: selectEntityFromResult(restaurantId),
   });
 
   if (!restaurant) {
     return <div>No restaurant</div>;
   }
 
-  return <Restaurant restaurant={restaurant} />;
+  return (
+    <>
+      <NavigationTabs />
+      <h2>{restaurant.name}</h2>
+      <Outlet />
+    </>
+  );
 };
