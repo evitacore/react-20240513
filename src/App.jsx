@@ -6,11 +6,11 @@ import {
 } from "react-router-dom";
 import { HomePage } from "./pages/home";
 import { RestaurantsPage } from "./pages/restaurants";
-import { DishPage } from "./pages/dish";
 import { RestaurantContainer } from "./components/restaurant/container";
 import { MenuContainer } from "./components/menu/container";
 import { ReviewsContainer } from "./components/reviews/container";
-import { DishContainer } from "./components/dish/container";
+import { DishPage } from "./pages/dish";
+import { RestaurantCardsContainer } from "./components/restaurant-cards/container";
 
 const router = createBrowserRouter([
   {
@@ -18,27 +18,24 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <HomePage /> },
+      { path: "/dish/:dishId", element: <DishPage /> },
       {
-        path: "restaurants",
+        path: "/restaurants",
         element: <RestaurantsPage />,
         children: [
+          { index: true, element: <RestaurantCardsContainer /> },
           {
-            path: ":restaurantId",  
+            path: ":restaurantId",
             element: <RestaurantContainer />,
             children: [
-              { index: true, element: <MenuContainer /> },
+              { index: true, element: <Navigate to="menu" replace /> },
               { path: "menu", element: <MenuContainer /> },
               { path: "reviews", element: <ReviewsContainer /> },
             ],
           },
         ],
       },
-      {
-        path: "dish",
-        element: <DishPage />,
-        children: [{ path: ":dishId", element: <DishContainer /> }],
-      },
-      { path: "login", element: <Navigate to="/restaurants" replace /> },
+      { path: "/login", element: <Navigate to="/restaurants" replace /> },
     ],
   },
 ]);

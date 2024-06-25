@@ -1,0 +1,44 @@
+.root {
+    display: flex;
+    flex-direction: column;
+}
+
+.cards {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.container {
+    align-items: center;
+    border-radius: 1rem;
+    display: flex;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    margin: 0 10px 0 14px;
+    position: absolute;
+    display: inline-block;
+    line-height: 0;
+}
+
+.svg {
+    transition: inherit;
+    transition-duration: inherit;
+    transition-property: inherit;
+    transition-timing-function: inherit;
+}
+
+@media screen and (max-width: 600px) {
+    .cards {
+        display: block;
+    }
+}

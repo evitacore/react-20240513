@@ -1,8 +1,7 @@
-/* eslint-disable react/jsx-key */
-import { RestaurantTabs } from "./component";
+import { RestaurantCards } from "./component";
 import { useGetRestaurantsQuery } from "../../redux/service/api";
 
-export const RestaurantTabsContainer = () => {
+export const RestaurantCardsContainer = () => {
   const { data: restaurants, isLoading, isFetching } = useGetRestaurantsQuery();
 
   if (!restaurants) {
@@ -13,7 +12,7 @@ export const RestaurantTabsContainer = () => {
     <>
       {isLoading && <div>Loading</div>}
       {isFetching && <div>isFetching</div>}
-      {restaurants?.length > 0 && <RestaurantTabs restaurants={restaurants} />}
+      {restaurants?.length > 0 && <RestaurantCards restaurants={restaurants} />}
     </>
   );
 };

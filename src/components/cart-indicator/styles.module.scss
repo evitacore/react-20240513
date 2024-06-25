@@ -1,0 +1,46 @@
+.icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    display: inline-block;
+    line-height: 0;
+    margin-right: 9px;
+}
+
+.button {
+    padding: 0;
+    background: none;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+.icon_clear {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    margin-left: 9px;
+}
+
+.root {
+    background-color: rgba(101, 92, 78, .1);
+    align-items: center;
+    display: flex;
+    padding: 0 18px 0 12px;
+    min-height: 48px;
+    min-width: 48px;
+    border-radius: 16px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+}

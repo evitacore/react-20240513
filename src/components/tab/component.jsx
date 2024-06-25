@@ -6,14 +6,13 @@ export const Tab = ({ title, to }) => {
   return (
     <NavLink
       className={({ isActive }) =>
-        classNames(styles.root, {
+        classNames(styles.tab, {
           [styles.active]: isActive,
         })
       }
       to={to}
     >
       {title}
-      {/* {({ isActive }) => `${title}${isActive ? "-active" : ""}`} */}
     </NavLink>
   );
 };

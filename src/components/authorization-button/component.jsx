@@ -21,12 +21,12 @@ export const AuthorizationButton = () => {
   );
 
   return (
-    <div>
+    <div className={styles.root}>
       <span className={styles.user}>{user && `Hello, ${user}!`}</span>
       {user ? (
-        <Button onClick={logout}>Logout</Button>
+        <Button className={styles.logout} onClick={logout}>Logout</Button>
       ) : (
-        <Button onClick={() => setIsModalOpen(true)}>Login</Button>
+        <Button className={styles.login} onClick={() => setIsModalOpen(true)}>Login</Button>
       )}
       {isModalOpen && (
         <Modal onClose={handleClose}>

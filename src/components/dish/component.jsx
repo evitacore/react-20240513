@@ -23,7 +23,6 @@ export const Dish = ({ dish, count, decrement, increment }) => {
           <Counter value={count} decrement={decrement} increment={increment} />
         )}
       </div>
-      <div className={styles.image} />
     </div>
   );
 };

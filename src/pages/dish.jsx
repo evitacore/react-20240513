@@ -1,15 +1,23 @@
-import { useEffect } from "react";
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Dish } from "../components/dish/component";
+import { useGetDishByIdQuery } from "../redux/service/api";
+import { useCart } from "../hooks/use-cart";
 
 export const DishPage = () => {
   const { dishId } = useParams();
-  const navigate = useNavigate();
+  const { data: dish, isFetching } = useGetDishByIdQuery(dishId);
+  const { count, increment, decrement } = useCart(dishId);
 
-  useEffect(() => {
-    if (!dishId)
-      navigate('/restaurants', { replace: true })
-  }, [dishId, navigate])
-  
+  if (isFetching) {
+    return <div>Loading</div>;
+  }
 
-  return <Outlet />;
+  return (
+    <Dish
+      dish={dish}
+      count={count}
+      increment={increment}
+      decrement={decrement}
+    />
+  );
 };

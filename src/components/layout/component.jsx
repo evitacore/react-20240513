@@ -10,7 +10,7 @@ export const Layout = () => {
     <ThemeContextProvider>
       <UserContextProvider>
         <div id="modal" style={{position: "relative", zIndex: 2}}></div>
-        <div style={{zIndex: 1}}>
+        <div className={styles.root} style={{zIndex: 1}}>
           <Header />
           <div className={styles.content}>
             <Outlet />

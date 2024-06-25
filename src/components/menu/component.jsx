@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import { DishContainer } from "../dish/container";
 
 export const Menu = ({ dishes }) => {
@@ -7,7 +6,7 @@ export const Menu = ({ dishes }) => {
       <h3>Menu</h3>
       <div>
         {dishes.map((dish) => (
-          <DishContainer itemId={dish.id} />
+          <DishContainer itemId={dish.id} key={dish.id} />
         ))}
       </div>
     </div>
