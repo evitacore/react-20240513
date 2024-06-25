@@ -1,15 +1,11 @@
-import { useSearchParams } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { Card } from "../card/component";
 import { Input } from "../input/component";
 
-export const RestaurantCards = ({ restaurants }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const searchValue = searchParams.get("search") || "";
-
+export const RestaurantCards = ({ restaurants, searchValue, onSearchValueChange }) => {
   return (
     <div className={styles.root}>
-      <Input value={searchValue} setValue={(e) => setSearchParams({ search: e.target.value })} placeholder="Search restaurant" />
+      <Input value={searchValue} setValue={onSearchValueChange} placeholder="Search restaurant" />
       <div className={styles.cards}>
         {restaurants
           .filter(
