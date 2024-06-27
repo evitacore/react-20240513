@@ -8,10 +8,6 @@ export const RestaurantCards = ({ restaurants, searchValue, onSearchValueChange 
       <Input value={searchValue} setValue={onSearchValueChange} placeholder="Search restaurant" />
       <div className={styles.cards}>
         {restaurants
-          .filter(
-            ({ name }) =>
-              name.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1
-          )
           .map(({ name, id, img }) => (
             <Card title={name} to={`${id}`} img={img} key={id} />
           ))}

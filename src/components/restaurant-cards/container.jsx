@@ -23,9 +23,7 @@ export const RestaurantCardsContainer = () => {
     <RestaurantCards
       restaurants={restaurants}
       searchValue={searchValue}
-      onSearchValueChange={(e) =>
-        setSearchParams({ search: e.target.value })
-      }
+      onSearchValueChange={(e) => setSearchParams({ search: e.target.value })}
     />
   );
 };

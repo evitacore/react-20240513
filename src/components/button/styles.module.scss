@@ -20,6 +20,14 @@
   color: black;
 }
 
+.alternative:hover {
+  background-color: #F2D700;
+}
+
+.default:hover {
+  background-color: #E7E6E4;
+}
+
 .default:disabled {
   background-color: #054540;
   color: #fff;

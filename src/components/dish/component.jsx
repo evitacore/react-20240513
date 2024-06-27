@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 
 export const Dish = ({ dish, count, decrement, increment }) => {
-  const { user } = useUser();
+  const user = useUser();
   const { name, price, ingredients, id } = dish;
 
   return (

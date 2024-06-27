@@ -1,12 +1,16 @@
 .root {
-    margin: 20px;
+  margin: 20px;
 }
 
-.buttons{
-    display: flex;
+.buttons {
+  display: flex;
 }
 
 .login {
-    background-color: #fce000;
-    margin-right: 10px;
+  background-color: #fce000;
+  margin-right: 10px;
+}
+
+.login:hover {
+  background-color: #f2d700;
 }

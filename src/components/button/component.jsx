@@ -4,7 +4,7 @@ import { useTheme } from "../../contexts/theme/hooks";
 import classNames from 'classnames';
 
 export const Button = ({type, disabled, onClick, children, className}) => {
-  const { theme } = useTheme();
+  const theme = useTheme();
 
   return (
     <button 
@@ -13,7 +13,7 @@ export const Button = ({type, disabled, onClick, children, className}) => {
       className={classNames(styles.root, styles[theme], className)} 
       onClick={onClick}
     >
-      {children}
+      <span className={styles.children}>{children}</span>
     </button>
   );
 };

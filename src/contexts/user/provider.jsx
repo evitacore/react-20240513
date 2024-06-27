@@ -1,19 +1,22 @@
 import { useMemo, useState } from "react";
-import { UserContext } from "./context";
+import { UserContext, UserSetterContext } from "./context";
 
-export const UserContextProvider = ({children}) => {
-  const [user, setUser] = useState(null);
+export const UserContextProvider = ({ children }) => {
+  const [user, setUser] = useState();
 
-  const contextValue = useMemo(
+  const setterContextValue = useMemo(
     () => ({
-      user, 
       login: setUser,
-      logout: () => setUser(null)
+      logout: () => setUser(null),
     }),
-    [user]
-  )
+    []
+  );
 
-  return <UserContext.Provider value={contextValue}>
-    {children}
-  </UserContext.Provider>
-}
+  return (
+    <UserContext.Provider value={user}>
+      <UserSetterContext.Provider value={setterContextValue}>
+        {children}
+      </UserSetterContext.Provider>
+    </UserContext.Provider>
+  );
+};

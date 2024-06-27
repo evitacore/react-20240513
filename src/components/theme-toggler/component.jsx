@@ -1,8 +1,8 @@
 import { Button } from "../button/component";
-import { useTheme } from "../../contexts/theme/hooks";
+import { useThemeSetters } from "../../contexts/theme/hooks";
 
 export const ThemeToggler = () => {
-  const { toggleTheme } = useTheme();
+  const { toggleTheme } = useThemeSetters();
 
   return <Button onClick={toggleTheme}>Toggle Theme</Button>;
 };
