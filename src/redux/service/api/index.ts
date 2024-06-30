@@ -53,7 +53,7 @@ export const apiService = createApi({
       query: ({ restaurantId, newReview }) => ({
         url: `/review/${restaurantId}`,
         method: "POST",
-        body: newReview,
+        body: { ...newReview, userId: "c3d4abd4-c3ef-46e1-8719-eb17db1d6e99" },
       }),
       invalidatesTags: (result, _, { restaurantId }) => [
         { type: "Restaurant" as const, id: restaurantId },

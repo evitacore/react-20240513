@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 import { useNavigate } from "react-router-dom";
 
 export const AuthorizationButton: FC = () => {
-  const user = useUser();
+  const { user } = useUser();
   const { logout, login } = useUserSetters();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();

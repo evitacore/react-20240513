@@ -6,6 +6,9 @@ import { UserSlice } from "./entities/user";
 import { CartSlice } from "./ui/cart";
 import { RequestSlice } from "./ui/request";
 import { apiService } from "./service/api";
+import { useDispatch } from "react-redux";
+
+export type AppDispatch = typeof store.dispatch;
 
 export const store = configureStore({
   reducer: combineSlices(
@@ -21,5 +24,7 @@ export const store = configureStore({
     getDefaultMiddleware().concat(apiService.middleware),
   devTools: import.meta.env.DEV,
 });
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();
 
 // console.log(store.getState())

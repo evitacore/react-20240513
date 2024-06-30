@@ -5,11 +5,10 @@ export type ReviewType = {
   user: string;
   text: string;
   rating: number;
-  userId?: string;
+  userId: string;
 };
 
 export type ReviewFormData = {
-  userId: string;
   rating: number;
   text: string;
 };

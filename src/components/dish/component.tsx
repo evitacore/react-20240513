@@ -7,7 +7,7 @@ import { FC } from "react";
 import { DishProps } from "../../types/dish";
 
 export const Dish: FC<DishProps> = ({ dish, count, decrement, increment }) => {
-  const user = useUser();
+  const { user } = useUser();
   const { name, price, ingredients, id } = dish;
 
   return (

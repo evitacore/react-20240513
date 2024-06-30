@@ -1,4 +1,4 @@
-import { FC, useReducer, FormEvent, Reducer } from "react";
+import { FC, useReducer, FormEvent, Reducer, ChangeEvent } from "react";
 import { Rating } from "../rating/component";
 import { Button } from "../button/component";
 import styles from "./styles.module.scss";
@@ -7,25 +7,24 @@ import { Input } from "../input/component";
 interface FormState {
   text: string;
   rating: number;
-  userId?: string;
 }
 
-type Action = { type: string; payload: any };
+type Action =
+  | { type: "setText"; payload: string }
+  | { type: "setRating"; payload: number }
+  | { type: "reset" };
 
 const INITIAL_STATE: FormState = {
   text: "",
   rating: 5,
 };
 
-const reducer: Reducer<FormState, Action> = (
-  state,
-  { type, payload }
-): FormState => {
-  switch (type) {
+const reducer: Reducer<FormState, Action> = (state, action): FormState => {
+  switch (action.type) {
     case "setText":
-      return { ...state, text: payload };
+      return { ...state, text: action.payload };
     case "setRating":
-      return { ...state, rating: payload };
+      return { ...state, rating: action.payload };
     case "reset":
       return { ...INITIAL_STATE };
     default:
@@ -35,7 +34,7 @@ const reducer: Reducer<FormState, Action> = (
 
 type ReviewFormProps = {
   initialValue?: FormState;
-  onSaveClick: any; // TODO (form: FormState) => void;
+  onSaveClick: (form: FormState) => void;
   onCancelClick?: () => void;
 };
 
@@ -46,10 +45,10 @@ export const ReviewForm: FC<ReviewFormProps> = ({
 }) => {
   const [form, dispatch] = useReducer(reducer, initialValue);
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     onSaveClick({ ...initialValue, ...form });
-    dispatch({ type: "reset", payload: 0 });
+    dispatch({ type: "reset" });
   };
 
   return (
@@ -57,7 +56,7 @@ export const ReviewForm: FC<ReviewFormProps> = ({
       <div className={styles.field}>
         <Input
           value={form.text}
-          setValue={(e) =>
+          setValue={(e: ChangeEvent<HTMLInputElement>) =>
             dispatch({ type: "setText", payload: e.target.value })
           }
           placeholder="Enter your text"
@@ -72,7 +71,7 @@ export const ReviewForm: FC<ReviewFormProps> = ({
           }
         />
       </div>
-      <Button onClick={handleSubmit}>Save</Button>
+      <Button type="submit">Save</Button>
       {onCancelClick && <Button onClick={onCancelClick}>Cancel</Button>}
     </form>
   );

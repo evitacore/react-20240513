@@ -1,13 +1,13 @@
 import { FC, PropsWithChildren, ReactNode, useMemo, useState } from "react";
-import { UserContext, UserSetterContext } from "./context";
+import { UserContext, UserContextProps, UserSetterContext } from "./context";
 
 export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<UserContextProps>({ user: null });
 
   const setterContextValue = useMemo(
     () => ({
-      login: setUser,
-      logout: () => setUser(null),
+      login: (user: string) => setUser({ user }),
+      logout: () => setUser({ user: null }),
     }),
     []
   );

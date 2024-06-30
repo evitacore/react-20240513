@@ -6,7 +6,7 @@ import { ReviewFormData, ReviewType } from "../../types/review";
 type UpdateReviewFormContainerProps = {
   review: ReviewType;
   onCancel: () => void;
-  onSave: any;
+  onSave: () => void;
 };
 
 export const UpdateReviewFormContainer: FC<UpdateReviewFormContainerProps> = ({

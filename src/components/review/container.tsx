@@ -9,10 +9,13 @@ type ReviewContainerProps = {
 }
 
 export const ReviewContainer: FC<ReviewContainerProps> = ({ review }) => {
-  const userId: any = review ? review.userId : null;
+  if (!review) {
+    return;
+  }
+
   const { data: user } = useGetUsersQuery(undefined, {
     skip: !review,
-    selectFromResult: selectEntityFromResult(userId),
+    selectFromResult: selectEntityFromResult(review.userId),
   });
 
   if (!user) {
