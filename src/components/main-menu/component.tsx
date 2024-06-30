@@ -1,10 +1,15 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { FC, PropsWithChildren, ReactNode, createContext, useContext, useMemo, useState } from "react";
 import { Button } from "../button/component";
 
-const MainMenuContext = createContext();
+interface MainMenuContextType {
+  openedPart: string | null;
+  setOpenedPart: (part: string | null) => void;
+}
 
-export const MainMenu = ({ children }) => {
-  const [openedPart, setOpenedPart] = useState();
+const MainMenuContext = createContext<MainMenuContextType | undefined>(undefined);
+
+export const MainMenu: FC<PropsWithChildren<{}>> & { Group: FC<GroupProps>; Item: FC<ItemProps> } = ({ children }) => {
+  const [openedPart, setOpenedPart] = useState<string | null>(null);
   const contextValue = useMemo(
     () => ({ openedPart, setOpenedPart }),
     [openedPart]
@@ -17,8 +22,17 @@ export const MainMenu = ({ children }) => {
   );
 };
 
-const Group = ({ name, children }) => {
-  const { openedPart, setOpenedPart } = useContext(MainMenuContext);
+type GroupProps = {
+  name: string;
+  children: ReactNode;
+}
+
+const Group: FC<GroupProps> = ({ name, children }) => {
+  const context = useContext(MainMenuContext);
+  if (!context) {
+    throw new Error("Group must be used within a MainMenu");
+  }
+  const { openedPart, setOpenedPart } = context;
   const isOpened = openedPart === name;
 
   return (
@@ -31,7 +45,11 @@ const Group = ({ name, children }) => {
   );
 };
 
-const Item = ({ title }) => {
+type ItemProps = {
+  title: string
+}
+
+const Item: FC<ItemProps> = ({ title }) => {
   return <div>{title}</div>;
 };
 
